@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0B0F17;
+  --foreground: #ffffff;
+  
+  /* Design System Tokens */
+  --astra-gradient-accent: linear-gradient(90deg, #6A7CFF, #BC7BFF);
+  --astra-gradient-aqua: linear-gradient(90deg, #00E5FF, #0099CC);
+  --astra-glow-aqua: 0 0 60px #00E5FF, 0 0 120px rgba(0, 229, 255, 0.4);
+  --astra-shadow-card-dark: 0px 4px 18px rgba(0, 0, 0, 0.45);
+  --astra-radius-card: 14px;
+  --astra-radius-button: 8px;
+  --astra-gap: 24px;
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, 'SF Pro', 'Inter', 'Poppins', sans-serif;
+  --font-arabic: var(--font-cairo), 'Cairo', 'IBM Plex Arabic', sans-serif;
+  
+  /* Astrah Design System Colors */
+  --color-astrah-primary: #00E5FF;
+  --color-astrah-gradient-start: #6A7CFF;
+  --color-astrah-gradient-end: #BC7BFF;
+  --color-astrah-dark-bg: #0B0F17;
+  --color-astrah-dark-card: #111620;
+  --color-astrah-dark-border: #1E242D;
+  --color-astrah-dark-text-primary: #FFFFFF;
+  --color-astrah-dark-text-secondary: #D2D6DE;
+  
+  /* Border Radius */
+  --radius-astra-card: 14px;
+  --radius-astra-button: 8px;
+  --radius-astra-input: 10px;
+  --radius-astra-orb: 100%;
+  
+  /* Spacing */
+  --spacing-astra-gap: 24px;
+  --spacing-astra-sidebar: 240px;
+  --spacing-astra-topbar: 64px;
+  --spacing-astra-card-padding: 20px;
+  
+  /* Shadows */
+  --shadow-astra-card-dark: 0px 4px 18px rgba(0, 0, 0, 0.45);
+  --shadow-astra-card-light: 0px 4px 22px rgba(0, 0, 0, 0.08);
+  --shadow-astra-glow-aqua: 0 0 60px #00E5FF, 0 0 120px rgba(0, 229, 255, 0.4);
+  --shadow-astra-glow-soft: 0 0 10px rgba(0, 229, 255, 0.3);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'SF Pro', 'Inter', 'Poppins', sans-serif;
+  letter-spacing: -0.01em;
+}
+
+[dir="rtl"] body {
+  font-family: var(--font-cairo), 'Cairo', 'IBM Plex Arabic', sans-serif;
+}
+
+/* RTL support */
+[dir="rtl"] {
+  direction: rtl;
+}
+
+/* Hero section RTL layout */
+[dir="rtl"] .hero-container {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .hero-text {
+  width: 40%;
+  order: 2;
+}
+
+[dir="rtl"] .hero-orb {
+  width: 60%;
+  order: 1;
+}
