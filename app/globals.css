@@ -70,16 +70,6 @@ body {
   flex-direction: row-reverse;
 }
 
-[dir="rtl"] .hero-text {
-  width: 40%;
-  order: 2;
-}
-
-[dir="rtl"] .hero-orb {
-  width: 60%;
-  order: 1;
-}
-
 /* Ensure text block stays anchored left/right, never centered */
 .hero-text {
   text-align: left;
@@ -93,4 +83,29 @@ body {
 /* Gap handles spacing, flex-shrink-0 prevents compression */
 .hero-container {
   align-items: center;
+}
+
+/* Orb Life - Phase 1: Subtle pulse animation */
+/* Very slow, restrained CSS-based pulse for "system online" presence */
+/* Enhanced ranges for more visible "alive" effect */
+@keyframes orb-pulse {
+  0%, 100% {
+    filter: brightness(1.0);
+    opacity: 0.92;
+  }
+  50% {
+    filter: brightness(1.2);
+    opacity: 1.0;
+  }
+}
+
+.orb-pulse {
+  animation: orb-pulse 5s ease-in-out infinite;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .orb-pulse {
+    animation: none;
+  }
 }

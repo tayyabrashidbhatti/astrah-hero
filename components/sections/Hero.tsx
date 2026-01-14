@@ -12,7 +12,7 @@ export default function Hero() {
       <div className="container mx-auto px-8 lg:px-16">
         <div className={`hero-container flex min-h-[calc(100vh-120px)] items-center gap-8 lg:gap-16 ${isRTL ? 'flex-row-reverse' : ''}`}>
           {/* Text Content - 60% width on LTR, 40% on RTL - anchored left/right, NOT centered */}
-          <div className={`hero-text w-full lg:w-[60%] ${isRTL ? 'lg:pr-0' : 'lg:pl-0'} flex-shrink-0`}>
+          <div className={`hero-text w-full lg:w-[60%] ${isRTL ? 'lg:w-[40%]' : ''} flex-shrink-0 ${isRTL ? 'lg:pr-0' : 'lg:pl-0'}`}>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -29,13 +29,14 @@ export default function Hero() {
                 {t('hero.eyebrow')}
               </motion.div>
 
-              {/* Main Headline - H1: Increased by ~7.5% (34-39px) / 700 */}
+              {/* Main Headline - H1: 5-10% increase (34px → 37px) / 700 */}
               {/* Headline is the FIRST thing the eye lands on - primary focal point */}
+              {/* Text must clearly dominate the Orb */}
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className="text-[34px] font-bold leading-[1.2] tracking-[-0.02em] text-white lg:text-[39px]"
+                className="text-[34px] font-bold leading-[1.2] tracking-[-0.02em] text-white lg:text-[37px]"
                 style={{ 
                   textAlign: isRTL ? 'right' : 'left',
                 }}
@@ -117,13 +118,13 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Orb - 40% width on LTR, 60% on RTL - moved further toward outer edge for clearer negative space */}
+          {/* Orb - 40% width on LTR, 60% on RTL - supports from outer side, not centered */}
           {/* Orb supports headline, not competes with it */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8, x: isRTL ? -50 : 50 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.5, ease: 'easeOut' }}
-            className={`hero-orb hidden w-[40%] lg:block flex-shrink-0 ${isRTL ? 'pr-0 lg:pr-12' : 'pl-0 lg:pl-12'}`}
+            className={`hero-orb hidden lg:block flex-shrink-0 ${isRTL ? 'w-[60%]' : 'w-[40%]'} ${isRTL ? 'pr-0 lg:pr-12' : 'pl-0 lg:pl-12'}`}
           >
             <div className={`flex ${isRTL ? 'justify-start' : 'justify-end'}`}>
               <Orb />

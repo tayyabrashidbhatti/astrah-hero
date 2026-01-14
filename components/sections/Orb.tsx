@@ -25,8 +25,8 @@ export default function Orb() {
             width={1024}
             height={1024}
             className={`h-full w-full object-contain transition-opacity duration-1000 ${
-              imageLoaded ? 'opacity-100' : 'opacity-0'
-            }`}
+              imageLoaded ? '' : 'opacity-0'
+            } ${!shouldReduceMotion && imageLoaded ? 'orb-pulse' : imageLoaded ? 'opacity-100' : ''}`}
             priority
             unoptimized
             onLoad={() => setImageLoaded(true)}
@@ -40,52 +40,6 @@ export default function Orb() {
               aria-hidden="true"
             />
           )}
-          
-          {/* Internal luminosity shifts only - subtle, slow, along filament lines */}
-          {/* Neural activity at rest - not motion graphics */}
-          <motion.div
-            className="absolute inset-0 mix-blend-screen pointer-events-none"
-            style={{
-              background: 'radial-gradient(circle, rgba(0, 229, 255, 0.12) 0%, rgba(0, 229, 255, 0.06) 30%, transparent 60%)',
-              maskImage: 'radial-gradient(circle, black 0%, black 60%, transparent 80%)',
-              WebkitMaskImage: 'radial-gradient(circle, black 0%, black 60%, transparent 80%)',
-            }}
-            animate={
-              shouldReduceMotion
-                ? {}
-                : {
-                    opacity: [0.1, 0.18, 0.1],
-                  }
-            }
-            transition={{
-              duration: 10,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
-          />
-          
-          {/* Secondary internal luminosity layer - even more subtle, neural-like */}
-          <motion.div
-            className="absolute inset-0 mix-blend-soft-light pointer-events-none"
-            style={{
-              background: 'radial-gradient(circle, rgba(0, 229, 255, 0.08) 0%, transparent 50%)',
-              maskImage: 'radial-gradient(circle, black 0%, black 50%, transparent 70%)',
-              WebkitMaskImage: 'radial-gradient(circle, black 0%, black 50%, transparent 70%)',
-            }}
-            animate={
-              shouldReduceMotion
-                ? {}
-                : {
-                    opacity: [0.06, 0.12, 0.06],
-                  }
-            }
-            transition={{
-              duration: 12,
-              repeat: Infinity,
-              ease: 'easeInOut',
-              delay: 3,
-            }}
-          />
         </div>
       </motion.div>
     </div>
