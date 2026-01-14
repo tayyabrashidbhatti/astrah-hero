@@ -18,6 +18,11 @@ const cairo = Cairo({
 export const metadata: Metadata = {
   title: "Astrah OS — The Business Operating System for the Gulf",
   description: "The AI-native OS built for WhatsApp-first sales teams. Not a CRM. A system.",
+  icons: {
+    icon: "/logo-primary-2025-11-26.svg",
+    shortcut: "/logo-primary-2025-11-26.svg",
+    apple: "/logo-primary-2025-11-26.svg",
+  },
 };
 
 export default function RootLayout({

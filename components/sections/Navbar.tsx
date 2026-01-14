@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { useLanguage } from '@/app/contexts/LanguageContext';
 import { NAV_ITEMS } from '@/lib/constants/routes';
 
@@ -17,10 +18,17 @@ export default function Navbar() {
       <motion.div
         initial={{ opacity: 0, x: isRTL ? 20 : -20 }}
         animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.6, delay: 0.1 }}
-        className="text-xl font-semibold tracking-tight text-white"
+        transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
+        className="flex items-center"
       >
-        Astrah
+        <Image
+          src="/logo-primary-2025-11-26.png"
+          alt="Astrah"
+          width={120}
+          height={32}
+          className="h-8 w-auto opacity-90 transition-opacity hover:opacity-100"
+          priority
+        />
       </motion.div>
       
       <div className="hidden items-center gap-8 md:flex">

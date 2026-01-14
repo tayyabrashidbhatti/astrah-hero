@@ -79,3 +79,18 @@ body {
   width: 60%;
   order: 1;
 }
+
+/* Ensure text block stays anchored left/right, never centered */
+.hero-text {
+  text-align: left;
+}
+
+[dir="rtl"] .hero-text {
+  text-align: right;
+}
+
+/* Prevent any centering - text stays anchored to its side */
+/* Gap handles spacing, flex-shrink-0 prevents compression */
+.hero-container {
+  align-items: center;
+}

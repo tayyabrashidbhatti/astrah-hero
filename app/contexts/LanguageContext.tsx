@@ -26,7 +26,8 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.headline1': 'Stop managing chaos.',
     'hero.headline2': 'Start managing revenue.',
     'hero.subline1': 'The AI-native OS built for WhatsApp-first sales teams.',
-    'hero.subline2': 'Not a CRM. A system.',
+    'hero.subline2a': 'Not a CRM.',
+    'hero.subline2b': 'A system.',
     'hero.supporting': 'Built for how business actually happens across the GCC and MENA.',
     
     // Reality Check
@@ -157,7 +158,8 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.headline1': 'توقف عن إدارة الفوضى.',
     'hero.headline2': 'ابدأ إدارة الإيرادات.',
     'hero.subline1': 'نظام التشغيل القائم على الذكاء الاصطناعي المخصص لفرق المبيعات التي تعتمد على واتساب أولاً.',
-    'hero.subline2': 'ليس نظام إدارة علاقات العملاء. نظام.',
+    'hero.subline2a': 'ليس نظام إدارة علاقات العملاء.',
+    'hero.subline2b': 'نظام.',
     'hero.supporting': 'مصمم لكيفية عمل الأعمال بالفعل في دول مجلس التعاون الخليجي والشرق الأوسط وشمال أفريقيا.',
     
     // Reality Check

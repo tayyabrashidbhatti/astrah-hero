@@ -10,9 +10,9 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen bg-[#0B0F17]">
       <div className="container mx-auto px-8 lg:px-16">
-        <div className="hero-container flex min-h-[calc(100vh-120px)] items-center gap-6">
-          {/* Text Content - 60% width on LTR, 40% on RTL */}
-          <div className="hero-text w-full lg:w-[60%]">
+        <div className={`hero-container flex min-h-[calc(100vh-120px)] items-center gap-8 lg:gap-16 ${isRTL ? 'flex-row-reverse' : ''}`}>
+          {/* Text Content - 60% width on LTR, 40% on RTL - anchored left/right, NOT centered */}
+          <div className={`hero-text w-full lg:w-[60%] ${isRTL ? 'lg:pr-0' : 'lg:pl-0'} flex-shrink-0`}>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -29,13 +29,16 @@ export default function Hero() {
                 {t('hero.eyebrow')}
               </motion.div>
 
-              {/* Main Headline - H1: 32-36px / 700 */}
+              {/* Main Headline - H1: Increased by ~7.5% (34-39px) / 700 */}
+              {/* Headline is the FIRST thing the eye lands on - primary focal point */}
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className="text-[32px] font-bold leading-[1.2] tracking-[-0.02em] text-white lg:text-[36px]"
-                style={{ opacity: 0.9 }}
+                className="text-[34px] font-bold leading-[1.2] tracking-[-0.02em] text-white lg:text-[39px]"
+                style={{ 
+                  textAlign: isRTL ? 'right' : 'left',
+                }}
               >
                 <motion.span
                   initial={{ opacity: 0, x: isRTL ? 20 : -20 }}
@@ -65,7 +68,8 @@ export default function Hero() {
               >
                 {t('hero.subline1')}
                 <br />
-                {t('hero.subline2')}
+                <span className="text-white">{t('hero.subline2a')}</span>{' '}
+                <span className="text-[#00E5FF]">{t('hero.subline2b')}</span>
               </motion.p>
 
               {/* Supporting Line - Body M: 14px / 400 */}
@@ -113,14 +117,17 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Orb - 40% width on LTR, 60% on RTL */}
+          {/* Orb - 40% width on LTR, 60% on RTL - moved further toward outer edge for clearer negative space */}
+          {/* Orb supports headline, not competes with it */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8, x: isRTL ? -50 : 50 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.5, ease: 'easeOut' }}
-            className="hero-orb hidden w-[40%] lg:block"
+            className={`hero-orb hidden w-[40%] lg:block flex-shrink-0 ${isRTL ? 'pr-0 lg:pr-12' : 'pl-0 lg:pl-12'}`}
           >
-            <Orb />
+            <div className={`flex ${isRTL ? 'justify-start' : 'justify-end'}`}>
+              <Orb />
+            </div>
           </motion.div>
         </div>
       </div>
