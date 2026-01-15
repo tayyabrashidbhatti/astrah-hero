@@ -11,8 +11,8 @@ export default function Hero() {
     <section className="relative min-h-screen bg-[#0B0F17]">
       <div className="container mx-auto px-8 lg:px-16">
         <div className={`hero-container flex min-h-[calc(100vh-120px)] items-center gap-8 lg:gap-16 ${isRTL ? 'flex-row-reverse' : ''}`}>
-          {/* Text Content - 60% width on LTR, 40% on RTL - anchored left/right, NOT centered */}
-          <div className={`hero-text w-full lg:w-[60%] ${isRTL ? 'lg:w-[40%]' : ''} flex-shrink-0 ${isRTL ? 'lg:pr-0' : 'lg:pl-0'}`}>
+          {/* Text Content: 60% width (LTR) / 40% width (RTL) | order-1 (LTR) / order-2 (RTL) - anchored left/right, NOT centered */}
+          <div className={`hero-text w-full  ${isRTL ? 'lg:w-[60%] lg:order-2' : 'lg:w-[40%] lg:order-1'} flex-shrink-0 ${isRTL ? 'lg:pr-0' : 'lg:pl-0'}`}>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -37,7 +37,7 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
                 className="text-[34px] font-bold leading-[1.2] tracking-[-0.02em] text-white lg:text-[37px]"
-                style={{ 
+                style={{
                   textAlign: isRTL ? 'right' : 'left',
                 }}
               >
@@ -91,7 +91,7 @@ export default function Hero() {
                 className="pt-4"
               >
                 <motion.button
-                  whileHover={{ 
+                  whileHover={{
                     scale: 1.05,
                     boxShadow: '0 0 20px rgba(0, 229, 255, 0.4), 0 0 40px rgba(0, 229, 255, 0.2)'
                   }}
@@ -118,13 +118,12 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Orb - 40% width on LTR, 60% on RTL - supports from outer side, not centered */}
-          {/* Orb supports headline, not competes with it */}
+          {/* Orb: 40% width (LTR) / 60% width (RTL) | order-2 (LTR) / order-1 (RTL) - supports from outer side, not centered */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8, x: isRTL ? -50 : 50 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.5, ease: 'easeOut' }}
-            className={`hero-orb hidden lg:block flex-shrink-0 ${isRTL ? 'w-[60%]' : 'w-[40%]'} ${isRTL ? 'pr-0 lg:pr-12' : 'pl-0 lg:pl-12'}`}
+            className={`hero-orb hidden lg:block flex-shrink-0 ${isRTL ? 'lg:w-[40%] lg:order-1' : 'lg:w-[60%] lg:order-2'} ${isRTL ? 'pr-0 lg:pr-12' : 'pl-0 lg:pl-12'}`}
           >
             <div className={`flex ${isRTL ? 'justify-start' : 'justify-end'}`}>
               <Orb />
