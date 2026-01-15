@@ -8,7 +8,7 @@ export default function FooterCTA() {
 
   return (
     <section className="relative bg-[#0B0F17] py-24 px-8 lg:px-16">
-      <div className="container mx-auto max-w-4xl text-center">
+      <div className="container mx-auto px-8 lg:px-16 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
