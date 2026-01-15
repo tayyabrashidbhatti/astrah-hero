@@ -10,9 +10,9 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen bg-[#0B0F17]">
       <div className="container mx-auto px-8 lg:px-16">
-        <div className={`hero-container flex min-h-[calc(100vh-120px)] items-center gap-8 lg:gap-16 ${isRTL ? 'flex-row-reverse' : ''}`}>
-          {/* Text Content: 60% width (LTR) / 40% width (RTL) | order-1 (LTR) / order-2 (RTL) - anchored left/right, NOT centered */}
-          <div className={`hero-text w-full  ${isRTL ? 'lg:w-[60%] lg:order-2' : 'lg:w-[40%] lg:order-1'} flex-shrink-0 ${isRTL ? 'lg:pr-0' : 'lg:pl-0'}`}>
+        <div className="hero-container flex min-h-[calc(100vh-120px)] items-center gap-8 lg:gap-16">
+          {/* Text Content: 40% width (LTR) / 60% width (RTL) | order-1 (LTR) / order-2 (RTL) - anchored left/right, NOT centered */}
+          <div className={`hero-text w-full ${isRTL ? 'lg:w-[60%] lg:order-2' : 'lg:w-[40%] lg:order-1'} flex-shrink-0 ${isRTL ? 'lg:pr-0' : 'lg:pl-0'}`}>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -65,7 +65,10 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="max-w-[600px] text-base leading-[1.4] text-[#D2D6DE] lg:text-lg"
+                className={`${isRTL ? 'max-w-full' : 'max-w-[600px]'} text-base leading-[1.4] text-[#D2D6DE] lg:text-lg`}
+                style={{
+                  textAlign: isRTL ? 'right' : 'left',
+                }}
               >
                 {t('hero.subline1')}
                 <br />
@@ -78,7 +81,10 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
-                className="max-w-[600px] text-sm leading-[1.4] text-[#D2D6DE]"
+                className={`${isRTL ? 'max-w-full' : 'max-w-[600px]'} text-sm leading-[1.4] text-[#D2D6DE]`}
+                style={{
+                  textAlign: isRTL ? 'right' : 'left',
+                }}
               >
                 {t('hero.supporting')}
               </motion.p>
@@ -118,7 +124,7 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Orb: 40% width (LTR) / 60% width (RTL) | order-2 (LTR) / order-1 (RTL) - supports from outer side, not centered */}
+          {/* Orb: 60% width (LTR) / 40% width (RTL) | order-2 (LTR) / order-1 (RTL) - supports from outer side, not centered */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8, x: isRTL ? -50 : 50 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
